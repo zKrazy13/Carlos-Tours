@@ -1,7 +1,7 @@
 // ====== SETTINGS ======
 // Change this to the company's WhatsApp number (country code + number, no + or spaces)
 const WHATSAPP = '50489520750';          // used for the links and the booking/review messages
-const WHATSAPP_TEXT = '+504 8952-0750';   // how the number is shown in the footer
+const WHATSAPP_TEXT = '+504 8952-0750 ';   // how the number is shown in the footer
 const FACEBOOK_URL = 'https://www.facebook.com/carlostours1/';
 const INSTAGRAM_URL = 'https://www.instagram.com/carlostours_/';
 
