@@ -1,4 +1,4 @@
-:root {
+:root{
   --navy:#0a2a5e; --blue:#0b63d6; --sky:#2bb6f2; --sun:#ffc21a; --orange:#ff8a1f; --foam:#eef8fd; --white:#fff; --ink:#12263f;
   --head:'Baloo 2',system-ui,sans-serif; --body:'Nunito',system-ui,sans-serif;
 }
@@ -222,3 +222,85 @@ textarea:focus{border-color:var(--blue);outline:none}
 .social{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;width:100%}
 .social a{padding:.4rem 1.1rem;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);font-weight:700}
 .social a:hover{background:var(--sun);color:var(--navy);border-color:var(--sun)}
+
+/* Formularios: anti-spam y mensajes */
+.form-msg{font-weight:700;min-height:1.4em}
+.form-msg.ok{color:#14803c}
+.form-msg.err{color:#b3261e}
+
+/* ===== Tarjetas con precio y "More details" ===== */
+.tour-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem;margin-top:.7rem}
+.tour .tour-foot a{margin:0;align-self:auto;font-size:.95rem}
+.tprice{font-family:var(--head);font-weight:800;font-size:1.7rem;line-height:1;margin-right:.3rem;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+.tprice::after{content:" / person";font-family:var(--body);font-size:.8rem;font-weight:600;opacity:.9}
+.tour .tmore{background:transparent;color:var(--white);box-shadow:inset 0 0 0 2px var(--white)}
+.tour .tmore:hover{background:var(--white);color:var(--navy)}
+.tour.combo{grid-column:1/-1;min-height:240px;padding:2rem}
+.tour.combo h3{font-size:2.2rem}
+.tour.combo p{max-width:30em}
+.tour.combo::before{font-size:4rem;right:2rem;top:1.2rem}
+.tour .badge{position:absolute;top:1.2rem;left:1.6rem;background:var(--white);color:var(--orange);font-family:var(--head);font-weight:800;padding:.2rem .9rem;border-radius:999px;font-size:.95rem}
+.t7{background:linear-gradient(to top,rgba(10,42,94,.7),transparent 70%),linear-gradient(135deg,#ff8a1f,#0b63d6)}
+.t7::before{content:"🏍️ 🏙️ 🦥"}
+@media (max-width:600px){.tour.combo::before{font-size:2.4rem;right:1rem}}
+
+/* ===== Página de cada tour ===== */
+.bg1{background:linear-gradient(135deg,#1c8a5a,#2bb6f2)}.bg2{background:linear-gradient(135deg,#0b63d6,#38d6e0)}.bg3{background:linear-gradient(135deg,#2bb6f2,#7f8cff)}
+.bg4{background:linear-gradient(135deg,#2e9d4f,#a8d94a)}.bg5{background:linear-gradient(135deg,#ffb347,#2bb6f2)}.bg6{background:linear-gradient(135deg,#1c6e55,#4fb89a)}.bg7{background:linear-gradient(135deg,#ff8a1f,#0b63d6)}
+.tp{padding-top:7.5rem}
+.back{display:inline-block;margin-bottom:1rem;font-weight:700;color:var(--blue);text-decoration:none}
+.back:hover{color:var(--orange)}
+.tp h1{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:.4rem}
+.tp-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;align-items:start;margin:1.5rem 0 2.5rem}
+.tmain{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:26px;display:block}
+.thumbs{display:flex;gap:.6rem;margin-top:.7rem}
+.thumbs img{width:84px;height:64px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #d3e8f5}
+.tmedia-ph{aspect-ratio:4/3;border-radius:26px;display:grid;place-items:center;font-size:7rem}
+.panel{position:sticky;top:90px;background:var(--white);border:2px solid #d3e8f5;border-radius:22px;padding:1.5rem;box-shadow:0 16px 36px rgba(10,42,94,.12);display:grid;gap:1rem}
+.panel form{background:none;padding:0;box-shadow:none;border-radius:0}
+.total{text-align:center;padding:.8rem;border-radius:16px;background:var(--foam)}
+.total small{display:block;color:#5a728c;font-weight:700}
+.total strong{font-family:var(--head);font-size:2.4rem;color:var(--blue);line-height:1.1}
+.count{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.55rem 0;border-bottom:1px dashed #c7dcec;font-weight:700;font-size:.95rem}
+.ctl{display:flex;align-items:center;gap:.6rem}
+.ctl button{width:32px;height:32px;border:0;border-radius:50%;background:var(--sky);color:#fff;font-size:1.2rem;font-weight:800;cursor:pointer}
+.ctl button:hover{background:var(--blue)}
+.ctl output{min-width:1.4rem;text-align:center;font-weight:800}
+.panel .btn{width:100%;text-align:center}
+.panel .note{font-size:.9rem;text-align:center;color:#14803c;font-weight:700;background:#e9f9ef;border-radius:14px;padding:.7rem}
+.infos{display:grid;gap:1.4rem}
+.info{background:var(--white);border:2px solid #d3e8f5;border-radius:22px;padding:1.6rem 1.8rem}
+.info h2{font-size:1.8rem;margin-bottom:.8rem}
+.info h3{margin:1.2rem 0 .6rem;font-size:1.3rem}
+.info p+p{margin-top:.8rem}
+.facts{list-style:none;display:grid;gap:.5rem}
+.ticks{list-style:none;display:grid;gap:.5rem}
+.ticks li::before{content:"✓";color:#14803c;font-weight:800;margin-right:.6rem}
+.ticks.no li::before{content:"✕";color:#b3261e}
+.dots{padding-left:1.2rem;display:grid;gap:.4rem}
+.more-h{margin:3rem 0 1rem}
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem}
+.chip{display:flex;justify-content:space-between;gap:.6rem;padding:.9rem 1.1rem;border:2px solid #d3e8f5;border-radius:16px;text-decoration:none;font-weight:700;transition:transform .2s,border-color .2s}
+.chip:hover{border-color:var(--sky);transform:translateY(-3px)}
+.chip b{color:var(--blue)}
+@media (max-width:900px){.tp-grid{grid-template-columns:1fr}.panel{position:static}}
+.tour h3{padding-right:4.2rem}
+.tour.combo h3{padding-right:0}
+
+/* ===== Tarjetas con foto ===== */
+.tour.has-img{background:linear-gradient(to top,rgba(10,42,94,.9),rgba(10,42,94,.1) 65%),var(--img) center 30%/cover}
+.tour.has-img::before,.tour.has-img::after{display:none}
+.tour.has-img h3{padding-right:0}
+
+/* ===== Decoración en los espacios en blanco ===== */
+.sec>*{position:relative;z-index:1}
+.sec:not(.book):not(.tp)::after{content:"";position:absolute;right:-120px;bottom:10px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,194,26,.5),transparent 70%);display:grid;place-items:center;font-size:7.5rem;opacity:.45;pointer-events:none}
+.sec:not(.alt):not(.book):not(.tp){position:relative}
+.sec:not(.alt):not(.book):not(.tp)::before{content:"";position:absolute;left:-140px;top:30px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(43,182,242,.4),transparent 70%);opacity:.5;pointer-events:none}
+#transporte::after{content:"🌴"}
+#prices::after{content:"🐚"}
+#galeria::after{content:"📸"}
+#reviews::after{content:"⭐"}
+#nosotros::after{content:"🚐"}
+#conocenos::after{content:"🌺"}
+#mapa::after{content:"🧭"}

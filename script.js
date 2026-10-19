@@ -1,9 +1,13 @@
-// ====== SETTINGS ======
-// Change this to the company's WhatsApp number (country code + number, no + or spaces)
-const WHATSAPP = '50489520750';          // used for the links and the booking/review messages
-const WHATSAPP_TEXT = '+504 8952-0750 ';   // how the number is shown in the footer
-const FACEBOOK_URL = 'https://www.facebook.com/carlostours1/';
-const INSTAGRAM_URL = 'https://www.instagram.com/carlostours_/';
+// Contact data and tour prices are in data.js
+
+// Fill the tour prices from data.js
+// Tour cards use the first photo of the tour when it has one (otherwise they keep the color and icon)
+document.querySelectorAll('.tour').forEach(card => {
+  const t = TOURS[card.querySelector('[data-price]').dataset.price];
+  const img = t.image || (t.images && t.images[0]);
+  if (img) { card.classList.add('has-img'); card.style.setProperty('--img', `url("${img}")`); }
+});
+document.querySelectorAll('[data-price]').forEach(el => { el.textContent = money(TOURS[el.dataset.price].price); });
 
 // Gallery: add your photos here (save them in the img/galeria/ folder)
 // Example: { src: 'img/galeria/snorkel.jpg', alt: 'Snorkeling on the reef' },
@@ -73,10 +77,13 @@ form.addEventListener('submit', e => {
 
 // ====== Reviews: display ======
 const revs = document.getElementById('revs');
-if (!REVIEWS.length) {
-  revs.innerHTML = '<div class="rev-empty"><p>Reviews from our travelers will appear here. Be the first to share your experience!</p><a class="btn btn-sm" href="#review">Leave a review</a></div>';
-} else {
-  REVIEWS.forEach(r => {
+function renderReviews(list) {
+  revs.innerHTML = '';
+  if (!list.length) {
+    revs.innerHTML = '<div class="rev-empty"><p>Reviews from our travelers will appear here. Be the first to share your experience!</p><a class="btn btn-sm" href="#review">Leave a review</a></div>';
+    return;
+  }
+  list.forEach(r => {
     const card = document.createElement('article');
     card.className = 'rev';
     const st = document.createElement('div'); st.className = 'st'; st.textContent = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
@@ -86,19 +93,24 @@ if (!REVIEWS.length) {
     card.append(st, p, who, sm); revs.appendChild(card);
   });
 }
+renderReviews(REVIEWS);
 
-// ====== Reviews: form (sent by WhatsApp until the backend is ready) ======
+// ====== Reviews: form (the review is sent to our WhatsApp) ======
 const reviewForm = document.getElementById('reviewForm');
 const reviewService = document.getElementById('reviewService');
+const reviewMsg = document.getElementById('reviewMsg');
 reviewService.innerHTML = '<option value="">Select one (optional)</option>' + select.innerHTML;
 
 reviewForm.addEventListener('submit', e => {
   e.preventDefault();
   const d = new FormData(reviewForm);
+  const from = d.get('lugar') ? ` (${d.get('lugar')})` : '';
   const service = reviewService.value ? ` Service: ${reviewService.selectedOptions[0].text}.` : '';
-  const msg = `New review from ${d.get('nombre')}. Rating: ${d.get('rating')}/5.${service} "${d.get('texto')}"`;
+  const msg = `New review from ${d.get('nombre')}${from}. Rating: ${d.get('rating')}/5.${service} "${d.get('texto')}"`;
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
   reviewForm.reset();
+  reviewMsg.textContent = 'WhatsApp opened with your review. Just press send. Thank you!';
+  reviewMsg.className = 'form-msg ok';
 });
 
 // ====== WhatsApp and social links ======

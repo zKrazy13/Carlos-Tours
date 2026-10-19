@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tour | Carlos Tours & Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="index.html#inicio" class="brand"><span>Carlos</span> Tours</a>
+  <nav id="menu">
+    <a href="index.html#transporte">Transport</a>
+    <a href="index.html#tours">Tours</a>
+    <a href="index.html#prices">Prices</a>
+    <a href="index.html#galeria">Gallery</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#conocenos">Meet us</a>
+    <a href="index.html#mapa">Map</a>
+    <a href="index.html#reservar" class="btn btn-sm">Book now</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+</header>
+
+<main>
+<section class="sec tp" id="tpMain">
+  <a class="back" href="index.html#tours">← All tours</a>
+  <h1 id="tTitle">Loading…</h1>
+  <p class="lead" id="tShort"></p>
+  <div class="tp-grid">
+    <div id="tMedia"></div>
+    <aside class="panel">
+      <div class="total"><small>Tour total</small><strong id="tTotal">$0</strong><small>Estimated price</small></div>
+      <form id="tForm">
+        <label><span>Date</span><input type="date" id="tDate" required></label>
+        <div id="counts"></div>
+        <button class="btn" type="submit">Book now</button>
+      </form>
+      <p class="note">100% private: only your group, no sharing.</p>
+    </aside>
+  </div>
+  <div class="infos" id="infos"></div>
+  <h2 class="more-h">More tours</h2>
+  <div class="more" id="more"></div>
+</section>
+</main>
+
+<footer>
+  <strong>Carlos Tours & Adventure</strong>
+  <span>Roatán, Bay Islands, Honduras</span>
+  <div class="social">
+    <a href="https://www.facebook.com/carlostours1/" data-social="facebook" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/carlostours_/" data-social="instagram" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://wa.me/50489520750" id="wa" target="_blank" rel="noopener">WhatsApp: +504 8952-0750</a>
+  </div>
+</footer>
+<a class="fab" id="fab" href="https://wa.me/50489520750" aria-label="WhatsApp">WhatsApp</a>
+
+<script src="data.js"></script>
+<script src="tour.js"></script>
+</body>
+</html>
